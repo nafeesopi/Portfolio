@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al Nafees - Transportation Engineering Researcher</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            animation: slideInLeft 1s ease 0.2s forwards;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: slideInLeft 1s ease 0.4s forwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 1s ease 0.6s forwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: none; /* Removed gradient background */
+            margin: 0 auto 1rem;
+            overflow: hidden; /* Ensures the image stays within the circle */
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fills the circle without distortion */
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #ffd700;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: var(--bg-light);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-meta {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .research-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .research-card .status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .status.published {
+            background: #10b981;
+            color: white;
+        }
+
+        .status.accepted {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .status.review {
+            background: #6366f1;
+            color: white;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-light);
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -30px;
+            border-right-color: white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -30px;
+            border-left-color: white;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 40px;
+            }
+
+            .timeline-content::before {
+                left: -30px !important;
+                border-right-color: white !important;
+                border-left-color: transparent !important;
+            }
+
+            .timeline-date {
+                left: 20px;
+                transform: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Abdullah Al Nafees</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Abdullah Al Nafees</h1>
+                <div class="subtitle">Transportation Engineering Researcher</div>
+                <p>Specialized in Intelligent Transportation Systems, Travel Behavior and Safety Evaluation, Roundabout Metering Signal, and Traffic Modelling. Bridging data-driven insights with sustainable urban mobility solutions.</p>
+                <div class="cta-buttons">
+                    <a href="#research" class="btn btn-primary">
+                        <i class="fas fa-microscope"></i> View Research
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="picture.jpg" alt="Abdullah Al Nafees">
+                    </div>
+                    <h3 style="color: white; margin-bottom: 0.5rem;">Abdullah Al Nafees</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">B.Sc. Civil Engineering<br>CGPA: 3.79/4.00</p>
+                    <div class="social-links">
+                        <a href="mailto:opinafees@gmail.com"><i class="fas fa-envelope"></i></a>
+						<a href="https://www.linkedin.com/in/nafeessec/" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-linkedin"></i></a>
+						<a href="https://scholar.google.com/citations?user=9Z3zaQ0AAAAJ&hl=en" target="_blank" style="color: white; margin: 0 1rem;"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="tel:+8801624937386"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>About Me</h2>
+                <p>Transportation engineering researcher focused on intelligent systems and sustainable solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-info fade-in">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sylhet, Bangladesh</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+880 1624937386</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>opinafees@gmail.com</span>
+                    </div>
+										
+                    <div class="contact-item">
+                        <a href="https://www.linkedin.com/in/nafeessec/" target="_blank" style="color: white;"><i class="fab fa-linkedin"></i></a>
+                        <span>LinkedIn Profile</span>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://scholar.google.com/citations?user=9Z3zaQ0AAAAJ&hl=en" target="_blank" style="color: white;"><i class="fas fa-graduation-cap"></i></a>
+                        <span>Google Scholar Profile</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="education-card fade-in">
+                        <h3>Education</h3>
+                        <h4>B.Sc. in Civil Engineering</h4>
+                        <div class="education-meta">
+                            <i class="fas fa-calendar"></i> January 2020 – July 2025<br>
+                            <i class="fas fa-university"></i> Sylhet Engineering College (SEC), School of Applied Sciences & Technology, Shahjalal University of Science and Technology (SUST)<br>
+                            <i class="fas fa-trophy"></i> CGPA: 3.79 / 4.00
+                        </div>
+                        <p>Thesis: Multi-Objective Optimization of Intersection Control under Heterogeneous Traffic Conditions: A Case Study in Zindabazar, Sylhet</p>
+                    </div>
+                    <div class="education-card fade-in">
+                        <h3>Research Focus</h3>
+                        <p>I am a researcher in Civil Engineering with expertise in Intelligent Transportation Systems, real-time monitoring and control, Big Data and Machine Learning for predictive models in traffic and transit demand, Adaptive Traffic Signal Control, Travel Behavior and Safety assessment, and Roundabout Metering under mixed traffic conditions.</p>
+                        <p>Committed to data-driven research and sustainable transportation solutions, I have contributed to projects involving traffic simulation, vehicle detection, and urban mobility optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Research & Publications</h2>
+                <p>Advancing intelligent transportation systems through data-driven research</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card fade-in">
+                    <div class="status published">Published</div>
+                    <h4>Investigating the performance of metering methods in managing unbalanced roundabouts using VISSIM</h4>
+                    <p><strong>ASEAN Journal of Scientific and Technological Reports, 2025</strong></p>
+                    <p>Analysis of metering techniques for unbalanced roundabouts in heterogeneous traffic.</p>
+                </div>
+                              
+                <div class="research-card fade-in">
+                    <div class="status review">Under Review</div>
+                    <h4>Investigation of risky driving behaviour of young novice motorcycle riders in Bangladesh using modified version of MRBQ</h4>
+                    <p><strong>Transportation Research Part F: Traffic Psychology and Behaviour, 2025</strong></p>
+                    <p>Study on motorcycle rider behavior in Bangladesh.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status accepted">Conference</div>
+                    <h4>Public transport ridership forecasting using machine learning: A case study of Rapid Bus KL in Malaysia</h4>
+                    <p><strong>27th International Conference on Computer and Information Technology (ICCIT), 2024</strong></p>
+                    <p>ML-based forecasting for public transit ridership.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status accepted">Conference</div>
+                    <h4>Vehicle Class Detection and Counting on a Malaysian Road Using YOLOv8 and OpenCV</h4>
+                    <p><strong>2024 IEEE International Conference on Artificial Intelligence in Engineering and Technology (IICAIET)</strong></p>
+                    <p>AI-based vehicle detection and counting.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status accepted">Conference</div>
+                    <h4>A study on the impact of the newly constructed metro rail in Dhaka on travel behavior</h4>
+                    <p><strong>Lecture Notes in Civil Engineering (Springer Nature), 2024</strong></p>
+                    <p>Impact analysis of metro rail on travel behavior.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status accepted">Conference</div>
+                    <h4>Analyzing public transit service patterns using GTFS data: A machine learning approach</h4>
+                    <p><strong>Proceedings of the 16th International Conference on Computing, Communication and Networking Technologies (ICCCNT), 2025</strong></p>
+                    <p>ML analysis of public transit patterns using GTFS data.</p>
+                </div>
+
+				<div class="research-card fade-in">
+                    <div class="status published">Published</div>
+                    <h4>Big data applications in intelligent transport systems: a bibliometric analysis and review</h4>
+                    <p><strong>Discov Civ Eng, 2025</strong></p>
+                    <p>Bibliometric review of big data trends in ITS from 2014-2023.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status published">Published</div>
+                    <h4>A comprehensive review on the impact of gap parameters for multiple types of roundabouts in different traffic conditions</h4>
+                    <p><strong>International Journal of Integrated Engineering (IJIE), 2024</strong></p>
+                    <p>Review of gap acceptance in various roundabout designs.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status published">Published</div>
+                    <h4>Application of machine learning in intelligent transport systems: a comprehensive review and bibliometric analysis</h4>
+                    <p><strong>Discov Civ Eng, 2025</strong></p>
+                    <p>Comprehensive review of ML applications in ITS.</p>
+                </div>
+                <div class="research-card fade-in">
+                    <div class="status review">In Pipeline</div>
+                    <h4>Understanding Cycling Behaviors in Bangladesh Using a Modified Multidimensional Cyclist Behavior Questionnaire</h4>
+                    <p><strong>In Pipeline</strong></p>
+                    <p>Study on cycling behaviors in Bangladesh.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status review">In Pipeline</div>
+                    <h4>Automated Directional Traffic Volume Estimation and Real-Time Vehicle Classification and Tracking Using Drone-Captured Footage in Heterogeneous Traffic Conditions with YOLOv11 and OpenCV</h4>
+                    <p><strong>In Pipeline</strong></p>
+                    <p>Drone-based traffic volume estimation using AI.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status review">In Pipeline</div>
+                    <h4>Machine Learning Prediction of Motorcycle Crash Risk and Injury Severity with SHAP Interpretation: A Case Study from Bangladesh</h4>
+                    <p><strong>In Pipeline</strong></p>
+                    <p>ML prediction of motorcycle crash risks.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status review">In Pipeline</div>
+                    <h4>Predicting Household Vehicle Travel Emissions Using Explainable Machine Learning Techniques</h4>
+                    <p><strong>In Pipeline</strong></p>
+                    <p>Explainable ML for vehicle emissions prediction.</p>
+                </div>
+
+                <div class="research-card fade-in">
+                    <div class="status review">In Pipeline</div>
+                    <h4>Identifying Key Predictors of E-Scooter Usage with the NHTS 2022 Dataset and Interpretable Machine Learning</h4>
+                    <p><strong>In Pipeline</strong></p>
+                    <p>Predictors of e-scooter usage using ML.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Experience & Leadership</h2>
+                <p>Professional journey and leadership roles</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3>Research Intern</h3>
+                        <h4>Research and Development Unit, UniV Bangladesh, Zaragoza, Spain (Remote)</h4>
+                        <p>Technical research, data analysis and visualization, writing and editing, supervision, moderation of online courses and webinars, writing blogs.</p>
+                    </div>
+                    <div class="timeline-date">May 2025 – Present</div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3>Research Assistant</h3>
+                        <h4>B’deshi Emerging Research Lab, Perlis, Malaysia (Remote)</h4>
+                        <p>Technical research, data analysis and visualization, writing, editing, and formatting, supervision. Led projects resulting in publications and conference presentations.</p>
+                    </div>
+                    <div class="timeline-date">September 2023 – Present</div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3>Vice President</h3>
+                        <h4>CE Centre of Research, Sylhet Engineering College</h4>
+                        <p>Mentored students, coordinated interdisciplinary teams, managed research output, organized events.</p>
+                    </div>
+                    <div class="timeline-date">Ongoing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Skills & Certifications</h2>
+                <p>Technical expertise and professional memberships</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming & Data Analysis</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">C Programming</span>
+                        <span class="skill-tag">Python Programming</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Scikit Learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">R Programming</span>
+                        <span class="skill-tag">Bibliometrix</span>
+                        <span class="skill-tag">psych</span>
+                        <span class="skill-tag">GPArotation</span>
+                        <span class="skill-tag">nFactors</span>
+                        <span class="skill-tag">dplyr</span>
+                        <span class="skill-tag">ggplot2</span>
+                        <span class="skill-tag">SPSS Statistics</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Engineering Software</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">PTV Vissim</span>
+                        <span class="skill-tag">SIDRA</span>
+                        <span class="skill-tag">SUMO</span>
+                        <span class="skill-tag">Autocad</span>
+                        <span class="skill-tag">ETABS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Office & Productivity Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Microsoft Word</span>
+                        <span class="skill-tag">Microsoft PowerPoint</span>
+                        <span class="skill-tag">Microsoft Excel</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">Latex Formatting</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Research Supervision</span>
+                        <span class="skill-tag">Online Course Moderation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Memberships</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">American Society of Civil Engineers (ASCE)</span>
+                        <span class="skill-tag">American Concrete Institute (ACI)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Get In Touch</h2>
+                <p>Let's collaborate on innovative transportation research</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>opinafees@gmail.com</p>
+                        <a href="mailto:opinafees@gmail.com" class="btn btn-outline" style="margin-top: 1rem;">Send Email</a>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+880 1624937386</p>
+                        <a href="tel:+8801624937386" class="btn btn-outline" style="margin-top: 1rem;">Call Now</a>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                        <p>Connect with me professionally</p>
+                        <a href="https://www.linkedin.com/in/nafeessec/" target="_blank" class="btn btn-outline" style="margin-top: 1rem;">View Profile</a>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Google Scholar</h3>
+                        <p>View my research publications</p>
+                        <a href="https://scholar.google.com/citations?user=9Z3zaQ0AAAAJ&hl=en" target="_blank" class="btn btn-outline" style="margin-top: 1rem;">View Publications</a>
+                    </div>
+                </div>
+                <div style="margin-top: 3rem; text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">Research Interests</h3>
+                    <p style="font-size: 1.1rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">
+                        I'm always interested in collaborating on projects involving Intelligent Transportation Systems, Travel Behavior and Safety Evaluation, Roundabout Metering Signal, Traffic Modelling, Machine Learning Applications in Transportation, and Sustainable Transportation Solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #1f2937; color: white; text-align: center; padding: 2rem 0;">
+        <div class="container">
+            <p>&copy; 2025 Abdullah Al Nafees. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7;">Transportation Engineering Researcher</p>
+            <div class="social-links" style="margin-top: 1rem;">
+                <a href="mailto:opinafees@gmail.com" style="color: white; margin: 0 1rem;"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/abdullah-al-nafees/" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=yourid" target="_blank" style="color: white; margin: 0 1rem;"><i class="fas fa-graduation-cap"></i></a>
+                <a href="tel:+8801624937386" style="color: white; margin: 0 1rem;"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu functionality (if needed)
+        const navToggle = document.createElement('button');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        navToggle.className = 'nav-toggle';
+        navToggle.style.display = 'none';
+        navToggle.style.background = 'none';
+        navToggle.style.border = 'none';
+        navToggle.style.fontSize = '1.5rem';
+        navToggle.style.color = 'var(--text-dark)';
+        navToggle.style.cursor = 'pointer';
+
+        // Add mobile menu toggle
+        const navContainer = document.querySelector('.nav-container');
+        navContainer.appendChild(navToggle);
+
+        // Mobile menu toggle functionality
+        navToggle.addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Show mobile menu button on small screens
+        function checkScreenSize() {
+            if (window.innerWidth <= 768) {
+                navToggle.style.display = 'block';
+                document.querySelector('.nav-links').style.flexDirection = 'column';
+                document.querySelector('.nav-links').style.position = 'absolute';
+                document.querySelector('.nav-links').style.top = '100%';
+                document.querySelector('.nav-links').style.left = '0';
+                document.querySelector('.nav-links').style.width = '100%';
+                document.querySelector('.nav-links').style.background = 'white';
+                document.querySelector('.nav-links').style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                document.querySelector('.nav-links').style.padding = '1rem';
+                document.querySelector('.nav-links').style.display = 'none';
+            } else {
+                navToggle.style.display = 'none';
+                document.querySelector('.nav-links').style.display = 'flex';
+                document.querySelector('.nav-links').style.flexDirection = 'row';
+                document.querySelector('.nav-links').style.position = 'static';
+                document.querySelector('.nav-links').style.background = 'transparent';
+                document.querySelector('.nav-links').style.boxShadow = 'none';
+                document.querySelector('.nav-links').style.padding = '0';
+            }
+        }
+
+        window.addEventListener('resize', checkScreenSize);
+        checkScreenSize();
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero-text h1');
+            const originalText = heroTitle.textContent;
+            setTimeout(() => {
+                typeWriter(heroTitle, originalText, 80);
+            }, 1000);
+        });
+
+        // Add counter animation for stats (if you want to add stats section later)
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.ceil(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            updateCounter();
+        }
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
